@@ -1,10 +1,16 @@
 from rest_framework import generics
-from .models import Ball
 from .serializers import BallSerializer
-from rest_framework.permissions import IsAuthenticated
+from .models import Ball
+from .permissions import IsOwnerOrReadOnly
 
 
 class BallListCreate(generics.ListCreateAPIView):
+    permission_classes = (IsOwnerOrReadOnly,)
     queryset = Ball.objects.all()
     serializer_class = BallSerializer
-    permission_classes = [IsAuthenticated]
+
+
+class BallDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsOwnerOrReadOnly,)
+    queryset = Ball.objects.all()
+    serializer_class = BallSerializer

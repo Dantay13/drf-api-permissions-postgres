@@ -1,5 +1,5 @@
 """
-WSGI config for balls_api_project project.
+WSGI config for drf_api_permissions_postgres project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

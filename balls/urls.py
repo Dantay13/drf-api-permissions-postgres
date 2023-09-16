@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import BallListCreate
+from .views import BallListCreate, BallDetail
 
 urlpatterns = [
-    path('balls/', BallListCreate.as_view(), name='ball-list-create'),
+    path('', BallListCreate.as_view()),
+    path('<int:pk>/', BallDetail.as_view()),
 ]
